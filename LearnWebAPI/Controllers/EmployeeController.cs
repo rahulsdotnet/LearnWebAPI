@@ -23,7 +23,7 @@ namespace LearnWebAPI.Controllers
         /// Manual Data Annontation Validtion example, It can use in console app or other place
         /// </summary>
         /// <returns></returns>
-    public bool CreateEmployee()
+    private bool CreateEmployee()
     {
         var emp = new Employee()
         {
