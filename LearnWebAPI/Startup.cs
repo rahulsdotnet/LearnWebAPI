@@ -1,5 +1,6 @@
 using LearnWebAPI.Middlewares;
 using LearnWebAPI.OptionModels;
+using LearnWebAPI.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -28,6 +29,23 @@ namespace LearnWebAPI
             services.AddControllers();
 
             services.AddTransient<GlobalExceptionHandlerMiddleware>();
+
+            //1. Transient
+
+            services.AddTransient<ITeaService, TeaService>();
+            services.AddTransient<IRestaurantService, RestaurantService>();
+
+            //2. Scope
+
+            //services.AddScoped<ITeaService, TeaService>();
+            //services.AddScoped<IRestaurantService, RestaurantService>();
+
+            //3. Singleton
+
+            //services.AddSingleton<ITeaService, TeaService>();
+            //services.AddSingleton<IRestaurantService, RestaurantService>();
+
+
 
             services.AddSwaggerGen(c =>
             {
